@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ProductForm from "./components/ProductForm";
-import ProductList from "./components/ProductList";
-import SearchBar from "./components/SearchBar";
-import ViewToggle from "./components/ViewToggle";
-import Pagination from "./components/Pagination";
+import ProductForm from "./Components/ProductForm";
+import ProductList from "./Components/ProductList";
+import SearchBar from "./Components/SearchBar";
+import ViewToggle from "./Components/ViewToggle";
+import Pagination from "./Components/Pagination";
 import productsData from "./data/initialProducts";
 
 export default function App() {

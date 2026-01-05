@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 
 
+
 export default function ProductForm({ onSave, editingProduct }) {
-  const initialForm = editingProduct || {
+  const emptyForm = {
     name: "",
     price: "",
     category: "",
     stock: "",
     description: ""
   };
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(() => editingProduct || emptyForm);
   const [error, setError] = useState("");
 
-  // Reset form when editingProduct changes
+  // Reset form when editingProduct changes (skip on initial mount)
   useEffect(() => {
-    setForm(editingProduct || {
-      name: "",
-      price: "",
-      category: "",
-      stock: "",
-      description: ""
-    });
+    if (editingProduct) {
+      setForm(editingProduct);
+    } else {
+      setForm(emptyForm);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editingProduct]);
 
   function handleChange(e) {
